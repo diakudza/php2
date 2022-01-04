@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+    {{ include('blocks/head.twig') }}
+    {{ include('blocks/header.twig') }}
+<body>
+    {{ include( template , {page: page, userLogin: userLogin, role:role}) }}
+    {{ include('blocks/footer.twig') }}
+</body>
+</html>
