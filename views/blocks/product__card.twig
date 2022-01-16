@@ -1,0 +1,24 @@
+<li class="product__card">
+
+    <div class="product__card-imgbox">
+        <img class="product__card-img" src="/public/img/{{ item.photo }}" height="420" alt="cadr_img">
+
+        {% if (userLogin != 'guest') and  (userLogin != 'admin@gmail.com') %}
+
+        <div class="product__card-add">
+
+            <button type="button" class="productAddBtn" onclick="save({{ item.id }})" id="product{{ item.id }}">
+                <div class="product__card-btnimg"></div> <span>Add to Cart</span>
+            </button>
+
+        </div>
+        {% endif %}
+    </div>
+    <a href="/product/view/{{ item.id}}">
+        <h4 class="product__card-header">{{ item.title }}</h4>
+        <p class="product__card-text">
+                {{ item.description }}
+        </p>
+        <h5 class="product__card-price">${{ item.price}}</h5>
+    </a>
+</li>
