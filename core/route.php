@@ -49,9 +49,10 @@ class Route
            Route::ErrorPage404();
 		}
         session_start();
+        $_SESSION['login'] = isset($_SESSION['login'])?$_SESSION['login']:'guest';
+        $_SESSION['role'] = isset($_SESSION['role'])?$_SESSION['role']:'guest';
         $controller = new $controller_name($id);
         $action = $action_name;
-
         model::historyAdd($_SESSION['login'],$_SERVER['REQUEST_URI']); // тут вызываю статический метод пишуший в базу последние uri (Не знаю, верное ли решение, но как сделать иначе - не придумал)
 
 		if(method_exists($controller, $action))

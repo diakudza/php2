@@ -10,7 +10,7 @@ class Controller {
 	{
 		$this->view = new View();
         $this->model = new Model();
-        $this->cartCount = $this->model->cartCount($_SESSION['userid']);
+        $this->cartCount = isset($_SESSION['userid'])?$this->model->cartCount($_SESSION['userid']):0;
         $_SESSION['cartCount'] = $this->cartCount;
 	}
 

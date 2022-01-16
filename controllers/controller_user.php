@@ -64,8 +64,8 @@ class Controller_user extends Controller
     {
 
         $this->isAuth = FALSE;
-        $login = 'guest';
-        $_SESSION['login']=$login;
+        unset($_SESSION['login']);
+        unset($_SESSION['role']);
         header("Location: /user/login");
     }
 
