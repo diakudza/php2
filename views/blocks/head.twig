@@ -1,0 +1,17 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>{{ page }}</title>
+    {% if page not in ['login','404','cabinet','order'] %}
+        <link rel="stylesheet" href="http://{{server}}/public/css/{{ page }}.css">
+    {% endif %}
+    {% if page in ['login','404','cabinet','order','alert'] %}
+        <link rel="stylesheet" href="http://{{server}}/public/css/registration.css">
+    {% endif %}
+
+    {% if page == 'product' %}
+        <link rel="stylesheet" href="http://{{server}}/public/css/chiefslider.css">
+    {% endif %}
+
+
+</head>

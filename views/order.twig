@@ -1,0 +1,47 @@
+
+
+<main class="white__back container">
+    <div class="registration__header container">
+        <span>ADMIN: Order Viewer</span>
+    </div>
+
+
+        <table class="orderTable">
+            <tr>
+                <td>OrderNum</td><td>Data</td><td>User</td><td>Sum</td><td>Adress</td><td>Status</td><td>Comment</td><td></td><td></td>
+            </tr>
+
+            {% for order in data.orders %}
+                <form id="form{{ order.idOrder}}" method="post">
+            <tr>
+
+                <td>{{ order.idOrder}}</td>
+                <td>{{ order.date }}</td>
+                <td>{{ order.login}}</td>
+                <td>{{ order.sum}}</td>
+                <td>{{ order.adress}}</td>
+                <td>
+                    <select name="status">
+                        <option value="{{ order.status}}">{{ order.status}}</option>
+                        <option value="Canceled">Canceled</option>
+                        <option value="Stopped">Stopped</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </td>
+                    <input hidden name="idOrder" value="{{ order.idOrder}}">
+                <td>
+                    <input type="text" value="{{ order.comment}}" name="comment"></td>
+                <td>
+                    <button class="button" type="submit" onclick="orderUpdate({{ order.idOrder}})" >Update</button>
+                    <button  onclick="orderDelete({{ order.idOrder}})" class="button">Удалить</button>
+                </td>
+
+            </tr>
+                </form>
+           {% endfor %}
+        </table>
+
+    <section class="loyalty">
+
+    </section>
+</main>
