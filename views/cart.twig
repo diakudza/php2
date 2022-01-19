@@ -1,0 +1,36 @@
+<main class="white__back container">
+
+        <div class="cart__header container">
+            <span>shopping cart</span>
+        </div>
+
+        <div class="card__column" id="cardColumn">
+             {% for item in data.pageParam %}
+               {% include 'blocks/cardInCart.twig' %}
+             {% endfor %}
+            <div class="card__column-btnblock">
+                <button type="button" class="product__button" id="clearCartBtn" href="#" onclick="clearCart({{ data.userid }})">clear shopping cart</button>
+                <a class="product__button" href="/catalog">continue shopping</a>
+            </div>
+        </div>
+
+        <form class="form" method="post" id="formx">
+            <div class="form__text">
+                <h3>SHIPPING ADRESS</h3>
+                <input type="hidden" id="userid" name="userid" value="{{ data.userid }}">
+            
+                <input type="text" id="postadress" name="postadress" placeholder="Address" required>
+
+            </div>
+
+            <div class="form__checkout">
+                <input type="hidden" id="sum" name="totalsum" value="{{ data.sum }}">
+                <h3>sub total <span>${{ data.sum }}</span></h3>
+                <h4>grand total <span>${{ data.sum }}</span></h4>
+                <div class="form__checkout-line"></div>
+                <button type="submit" class="product__button button__proceed" onclick="makeOrder()">proceed to checkout</button>
+
+            </div>
+
+        </form>
+</main>
