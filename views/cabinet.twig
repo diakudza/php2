@@ -1,0 +1,36 @@
+<main class="white__back container" xmlns="http://www.w3.org/1999/html">
+    <div class="registration__header container">
+        <span>{{ userLogin }} cabinet</span>
+    </div>
+
+    <section class="loyalty" >
+        <p>LastPages</p>
+
+        <table>
+        {% for item in pageParam %}
+
+            <tr>
+                <td> {{ item.date }} </td><td>-</td><td> {{  item.lastPages }} </td>
+            </tr>
+
+        {% endfor %}
+
+        </table>
+    </section>
+
+    <section class="loyalty">
+        <h1>Your orders</h1>
+       <table border="1">
+           <tr>
+               <td width="100px">Order Num.</td> <td width="200px">Status</td> <td width="400px">Data</td> <td width="200px">Comment</td>
+           </tr>
+
+            {% for order in data.orders %}
+               <tr>
+                   <td>{{  order.idOrder }}</td><td>{{  order.status }}</td><td>{{  order.date }}</td><td>{{  order.comment }}</td>
+               </tr>
+            {% endfor %}
+       </table>
+
+    </section>
+</main>

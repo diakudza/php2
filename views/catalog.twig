@@ -1,0 +1,53 @@
+<main class="white__back container">
+
+        <section class="catalog__header container">
+            <span class="catalog__header--arrivals">NEW ARRIVALS</span>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="/">home </a>/</li>
+                    <li><a href="#">men </a>/</li>
+                    <li><a href="#">new arrivals</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="catalog__menu width  container margin">
+            <div class="catalog__filter">
+
+                <button class="./img_filtr" onclick="ctlMenuClose()">
+                    <span>filter</span><img src="../public/img/filter_i.svg">
+                </button>
+
+                <div class="catalog__filter-menu" id="ctlMenu" >
+
+                        <img src="../public/img/filter_i.svg" onclick="ctlMenuClose()">
+                        {{ include ('blocks/filtermenu.twig') }}
+
+                </div>
+            </div>
+
+            <div class="catalog__menu--size">
+                <div class="catalog__menu--it">trending now<img class="catalog__menu--it" src="../public/img//down.svg">
+                </div>
+                <div class="catalog__menu--it">size
+                    <ul class="size__menu">
+                        <li><input type="checkbox">xs</li>
+                        <li><input type="checkbox">s</li>
+                        <li><input type="checkbox">m</li>
+                        <li><input type="checkbox">l</li>
+                    </ul>
+                    <img class="catalog__menu--it" src="../public/img/down.svg">
+                </div>
+
+                <div class="catalog__menu--it">price <img class="catalog__menu--it" src="../public/img/down.svg"></div>
+            </div>
+        </section>
+        <section class="product__table width container">
+            <h2 class="visually-hidden">product-catalog</h2>
+            <div id="product__table">
+
+            {%  include ('blocks/product__list.twig') %}
+            </div>
+            <button class="button_block" onclick="moreGoods()">More goods</button>
+        </section>
+        {%  include ('blocks/paginator.twig')%}
+</main>
